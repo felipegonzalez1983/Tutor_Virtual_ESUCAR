@@ -38,7 +38,8 @@ private val opciones = listOf(
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onOptionClick: (String) -> Unit = {}
 ) {
     LazyColumn(
         modifier = modifier
@@ -96,6 +97,7 @@ fun HomeScreen(
 
         items(opciones) { opcion ->
             Card(
+                onClick = { onOptionClick(opcion) },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(12.dp),
                 colors = CardDefaults.cardColors(
